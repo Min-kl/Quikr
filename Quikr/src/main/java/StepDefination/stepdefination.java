@@ -1,8 +1,13 @@
 package StepDefination;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
+import PageObject.HomePage;
+import PageObject.SearchPage;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -11,17 +16,28 @@ import cucumber.api.java.en.When;
 
 public class stepdefination {
 	WebDriver driver;
-
+	HomePage hp;
+	SearchPage sp;
+	
+	
+	  
 	@Given("^Launch the chrome browser$")
 	public void launch_the_chrome_browser() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		  driver=new ChromeDriver();
+		  ChromeOptions options=new ChromeOptions();
+			options.addArguments("--disable-notifications");
+			 driver = new ChromeDriver(options);
+		  driver.manage().window().maximize();
+		  driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		  driver.get("https://www.quikr.com/");
 	}
 
 	@When("^user opens URL$")
 	public void user_opens_URL() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	
+	  //hp.url();
 	}
 
 	@When("^user enters valid Mobile number$")
@@ -93,49 +109,55 @@ public class stepdefination {
 	@When("^webpage launched successfully$")
 	public void webpage_launched_successfully() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    //throw new PendingException();
+	// sp.lauch();
 	}
 
 	@When("^select bangalore from dropdown$")
 	public void select_bangalore_from_dropdown() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   // throw new PendingException();
+	 // sp.allindia();
+	  
 	}
 
 	@When("^Select from All category cars and bikes$")
 	public void select_from_All_category_cars_and_bikes() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   // throw new PendingException();
+	 //sp.allcategory();
 	}
 
 	@When("^enter cars in textbox$")
 	public void enter_cars_in_textbox() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	   // throw new PendingException();
+	//sp.textbox();
+	
 	}
 
 	@When("^click on search$")
 	public void click_on_search() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	  //  throw new PendingException();
+		sp.click();
 	}
 
 	@Then("^it should show all available product$")
 	public void it_should_show_all_available_product() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new PendingException();
+		sp.allavailable();
 	}
 
 	@When("^keep textbox blank$")
 	public void keep_textbox_blank() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new PendingException();
+		sp.blank();
 	}
 
 	@Then("^it should show warning$")
 	public void it_should_show_warning() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new PendingException();
+		sp.warning();
 	}
 
 	@When("^user selet category for ad$")

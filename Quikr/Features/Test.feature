@@ -25,53 +25,52 @@ Background:
     Then  Warning Invalid Email address should be displayed
     
     Scenario: Verifying Search box with valid credentials
-
-When webpage launched successfully 
-And select bangalore from dropdown
-And Select from All category cars and bikes
-And enter cars in textbox
-And click on search
-Then it should show all available product
-
-
-Scenario: Verifying Search box with invalid credentials
-When webpage launched successfully 
-And select bangalore from dropdown
-And Select from All category cars and bikes
-And keep textbox blank
-And click on search
-Then it should show warning
+      When webpage launched successfully 
+      And select bangalore from dropdown
+      And Select from All category cars and bikes
+      And enter cars in textbox
+      And click on search
+      Then it should show all available product
 
 
- Scenario: Post Your ad
- When user selet category for ad
- And user select subcategory for ad
- Then user should redirect on next page of category
+    Scenario: Verifying Search box with invalid credentials
+     When webpage launched successfully 
+     And select bangalore from dropdown
+     And Select from All category cars and bikes
+     And keep textbox blank
+     And click on search
+     Then it should show warning
+
+
+     Scenario: Post Your ad
+      When user selet category for ad
+      And user select subcategory for ad
+      Then user should redirect on next page of category
  
- Scenario: Valid details for post your ad
- Given  user selected category for ad
- And user selected subcategory for ad
- When user select Brand 
- And user select Model
- And  user select Year of Registration
- And user enter KMS Driven
- And user enter City or Pin Code
- And user enter expected selling price
- And user enter Name
- And user enter valid Mobile number
- And user enter valid email
- And user select post Free ad or Premium ad or Gold ad
- And user click on to Post Your Ad
- Then User should redirect on next page
+     Scenario: Valid details for post your ad
+       Given  user selected category for ad
+       And user selected subcategory for ad
+       When user select Brand 
+       And user select Model
+       And  user select Year of Registration
+       And user enter KMS Driven
+       And user enter City or Pin Code
+       And user enter expected selling price
+       And user enter Name
+       And user enter valid Mobile number
+       And user enter valid email
+       And user select post Free ad or Premium ad or Gold ad
+       And user click on to Post Your Ad
+       Then User should redirect on next page
     
 
-Scenario: Empty details for Post your ad 
-Given  user selected category for ad
- And user selected subcategory for ad
- When user does not select Brand 
- And user does not select Model
- And  user does not select Year of Registration
- And user enter nothing in KMS Driven
+     Scenario: Empty details for Post your ad 
+        Given  user selected category for ad
+        And user selected subcategory for ad
+        When user does not select Brand 
+        And user does not select Model
+        And  user does not select Year of Registration
+         And user enter nothing in KMS Driven
  And user enter nothing in  City or Pin Code
  And user enter nothing in expected selling price
  And user enter nothing in Name
